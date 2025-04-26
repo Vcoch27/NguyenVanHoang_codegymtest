@@ -27,9 +27,22 @@ int main()
     // mac dinh,
     bool daDem[100] = {false};
 
+    if (n == 0)
+    {
+        cout << "Mang rong!" << endl;
+        return 0;
+    }
+
     // duyet 2 vong lap dể đếm số lượng phần tử khác nhau
+    bool allSame = true;
+    int firstValue = arr[0];
+
     for (int i = 0; i < n; i++)
     {
+        if (arr[i] != firstValue)
+        {
+            allSame = false;
+        }
         if (!daDem[i])
         {
             count++;
@@ -44,7 +57,15 @@ int main()
     }
 
     // in ra result
-    cout << "So luong gia tri phan biet trong mang: " << count << endl;
+    if (allSame)
+    {
+        cout << "Tat ca phan tu trong mang deu giong nhau!" << endl;
+        cout << "So luong gia tri phan biet trong mang: 1" << endl;
+    }
+    else
+    {
+        cout << "So luong gia tri phan biet trong mang: " << count << endl;
+    }
 
     return 0;
 }
